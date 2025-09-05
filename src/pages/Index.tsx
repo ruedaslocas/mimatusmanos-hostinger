@@ -4,8 +4,23 @@ import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/Layout";
 import { Phone, Star, Award, Sparkles, Instagram } from "lucide-react";
 import heroImage from "@/assets/hero-nails.jpg";
+import instagram1 from "@/assets/instagram-1.jpg";
+import instagram2 from "@/assets/instagram-2.jpg";
+import instagram3 from "@/assets/instagram-3.jpg";
+import instagram4 from "@/assets/instagram-4.jpg";
+import instagram5 from "@/assets/instagram-5.jpg";
+import instagram6 from "@/assets/instagram-6.jpg";
 
 const Index = () => {
+  const instagramPosts = [
+    { id: 1, image: instagram1, alt: "Diseño de uñas elegante con detalles en rosa y blanco" },
+    { id: 2, image: instagram2, alt: "Nail art con flores y gemas, trabajo profesional" },
+    { id: 3, image: instagram3, alt: "Manicura francesa con detalles dorados" },
+    { id: 4, image: instagram4, alt: "Arte en uñas con patrones geométricos modernos" },
+    { id: 5, image: instagram5, alt: "Diseño colorido con arte rainbow" },
+    { id: 6, image: instagram6, alt: "Diseño sofisticado para novias con perlas y encaje" }
+  ];
+
   const testimonials = [
     {
       name: "María González",
@@ -116,18 +131,28 @@ const Index = () => {
             <p className="text-lg text-muted-foreground mb-8">
               Descubre algunas de nuestras creaciones más recientes
             </p>
-            <Button variant="outline" className="flex items-center gap-2 mx-auto">
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-2 mx-auto"
+              onClick={() => window.open("https://www.instagram.com/mima.tusmanoss", "_blank")}
+            >
               <Instagram className="h-5 w-5" />
-              Seguirnos en Instagram
+              @mima.tusmanoss
             </Button>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="aspect-square bg-secondary rounded-lg overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                  <span className="text-muted-foreground text-sm">Trabajo {i}</span>
-                </div>
+            {instagramPosts.map((post) => (
+              <div 
+                key={post.id} 
+                className="aspect-square rounded-lg overflow-hidden cursor-pointer transform transition-transform hover:scale-105 shadow-lg hover:shadow-xl"
+                onClick={() => window.open("https://www.instagram.com/mima.tusmanoss", "_blank")}
+              >
+                <img 
+                  src={post.image} 
+                  alt={post.alt}
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>
